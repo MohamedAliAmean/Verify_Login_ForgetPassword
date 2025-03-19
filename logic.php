@@ -46,16 +46,16 @@ class Query_database
         }
     }
 
-//    public function deleteUser($UserID)
-//     {
-//         try {
-//             $stmt = $this->pdo->prepare("DELETE FROM User WHERE ID = :UserID");
-//             $stmt->execute(['UserID' => $UserID]);
-//             return $stmt->rowCount() > 0;
-//         } catch (PDOException $e) {
-//             return "Error: " . $e->getMessage();
-//         }
-//     }
+    public function deleteUser($UserID)
+     {
+         try {
+             $stmt = $this->pdo->prepare("DELETE FROM User WHERE ID = :UserID");
+             $stmt->execute(['UserID' => $UserID]);
+             return $stmt->rowCount() > 0;
+         } catch (PDOException $e) {
+             return "Error: " . $e->getMessage();
+         }
+     }
 
     public function getUserByID($UserID)
     {
@@ -68,15 +68,15 @@ class Query_database
         }
     }
 
-    // public function getAllUsers()
-    // {
-    //     try {
-    //         $stmt = $this->pdo->query("SELECT * FROM User");
-    //         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //     } catch (PDOException $e) {
-    //         return "Error: " . $e->getMessage();
-    //     }
-    // }
+    public function getAllUsers()
+    {
+        try {
+            $stmt = $this->pdo->query("SELECT * FROM User");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return "Error: " . $e->getMessage();
+        }
+    }
 
     public function getUserByEmailOrUsername($input)
     {
@@ -89,15 +89,15 @@ class Query_database
         }
     }
 
-    // public function getUsersCount()
-    // {
-    //     try {
-    //         $stmt = $this->pdo->query("SELECT COUNT(*) AS total FROM User");
-    //         return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
-    //     } catch (PDOException $e) {
-    //         return "Error: " . $e->getMessage();
-    //     }
-    // }
+    public function getUsersCount()
+    {
+        try {
+            $stmt = $this->pdo->query("SELECT COUNT(*) AS total FROM User");
+            return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+        } catch (PDOException $e) {
+            return "Error: " . $e->getMessage();
+        }
+    }
 
 
     public function getUserByEmail($email)
